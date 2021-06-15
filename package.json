@@ -1,0 +1,27 @@
+{
+  "name": "types",
+  "version": "1.0.0",
+  "description": "Public TS types for Rushour API's",
+  "main": "index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "rushour",
+    "typescript",
+    "types"
+  ],
+  "author": "alex-robert",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rushour-io/types.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/@rushour-io"
+  },
+  "bugs": {
+    "url": "https://github.com/rushour-io/types/issues"
+  },
+  "homepage": "https://github.com/rushour-io/types#readme"
+}

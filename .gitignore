@@ -1,0 +1,31 @@
+logs
+*.log
+npm-debug.log*
+*.tgz
+
+node_modules
+jspm_packages
+
+.npm
+.serverless
+.build
+.eslintcache
+.node_repl_history
+.nyc_output
+
+*/.github
+
+.idea
+.vscode
+
+## drafts
+_*.*
+
+
+# Webpack directories
+.webpack
+
+# local build
+build/
+ts-build/
+docker/**
