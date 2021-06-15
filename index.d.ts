@@ -1,10 +1,10 @@
 export declare namespace Rushour {
-  type OrderCourier = {
+  type Courier = {
     name: string,
     phone: string
   }
 
-  type OrderFee = {
+  type Fee = {
     type: string,
     amount: number
   }
@@ -18,7 +18,7 @@ export declare namespace Rushour {
     }
   }
 
- type OrderItem = {
+  type OrderItem = {
     id: string,
     menuItemId?: string,
     name: string,
@@ -29,7 +29,7 @@ export declare namespace Rushour {
   }
 
 
-   type Order = {
+  type Order = {
     id: string
     externalId: string
     displayId: number
@@ -39,8 +39,8 @@ export declare namespace Rushour {
 
     actions: Array<string>,
     items: Array<OrderItem>,
-    couriers: Array<OrderCourier>,
-    fees: Array<OrderFee>,
+    couriers: Array<Courier>,
+    fees: Array<Fee>,
 
     total: number,
     instructions: string,
@@ -50,5 +50,87 @@ export declare namespace Rushour {
     readiedAt: Date,
     pickedUpAt: Date,
     completedAt: Date
+  }
+
+
+  type MenuModifiers = {
+    [modifierId: string]: {
+      id: string
+      externalId: string
+      name: string
+      minSelection: number
+      maxSelection: number
+      items: string[]
+    }
+  }
+
+  enum dayOfWeek {
+    sun, mon, tue, wed, thu, fri, sat
+  }
+
+  enum actions {
+    accept = 'accept',
+    complete = 'complete',
+    delivery = 'delivery'
+  }
+
+  type Shifts = {
+    [day in dayOfWeek]: [{
+      startTime: string
+      endTime: string
+    }]
+  }
+
+  type MenuCategory = {
+    id: string
+    externalId: string
+    name: string
+    description: string
+    items: string[]
+  }
+
+  type MenuCategories = {
+    [categoryId: string]: MenuCategory
+  }
+
+  type MenuItems = {
+    [itemId: string]: {
+      id: string
+      externalId: string
+      name: string
+      meta?: any,
+      description?: string
+      image: {
+        url: string
+      }
+      price: {
+        default: number
+        modifiers?: {
+          [modifierId: string]: number
+        }
+      }
+      isAlcohol?: boolean
+      vat: number
+      suspendUntil?: string | boolean
+      modifiers?: string[]
+    }
+  }
+
+  type MenusShifts = {
+    [menuId: string]: {
+      id: string
+      externalId: string
+      name: string
+      description: string
+      categories: string[]
+      shifts?: Shifts
+    }
+  }
+
+  type Menu = {
+    categories: MenuCategories,
+    items: MenuItems,
+    modifiers: MenuModifiers,
+    menus: MenusShifts
   }
 }
