@@ -1,4 +1,5 @@
 export declare namespace Rushour {
+
   type Courier = {
     name: string,
     phone: string
@@ -28,6 +29,18 @@ export declare namespace Rushour {
     modifiers?: Array<OrderItem>
   }
 
+  enum paymentMethod {
+    cash = 'cash',
+    mealVoucher = 'meal_voucher',
+    voucher = 'voucher',
+    card = 'card'
+  }
+
+  enum actions {
+    accept = 'accept',
+    complete = 'complete',
+    delivery = 'delivery'
+  }
 
   type Order = {
     id: string
@@ -35,6 +48,9 @@ export declare namespace Rushour {
     displayId: number
     status: string
     type: string
+    paymentMethod?: paymentMethod,
+    isPaid?: boolean,
+    cutleryRequested: boolean,
     customer: Customer
 
     actions: Array<string>,
@@ -44,12 +60,12 @@ export declare namespace Rushour {
 
     total: number,
     instructions: string,
-    prepareBy: string,
-    orderedAt: string,
-    acceptedAt: Date,
-    readiedAt: Date,
-    pickedUpAt: Date,
-    completedAt: Date
+    prepareBy?: string,
+    orderedAt: string, // isostring date
+    acceptedAt?: string, // isostring date
+    readiedAt?: string, // isostring date
+    pickedUpAt?: string, // isostring date
+    completedAt?: string // isostring date
   }
 
 
@@ -66,12 +82,6 @@ export declare namespace Rushour {
 
   enum dayOfWeek {
     sun, mon, tue, wed, thu, fri, sat
-  }
-
-  enum actions {
-    accept = 'accept',
-    complete = 'complete',
-    delivery = 'delivery'
   }
 
   type Shifts = {
