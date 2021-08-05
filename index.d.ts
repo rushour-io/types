@@ -45,7 +45,7 @@ export declare namespace Rushour {
   type Order = {
     id: string
     externalId: string
-    displayId: number
+    displayId: string
     status: string
     type: string
     paymentMethod?: paymentMethod,
