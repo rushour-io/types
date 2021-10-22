@@ -29,24 +29,39 @@ export declare namespace Rushour {
     modifiers?: Array<OrderItem>
   }
 
-  enum paymentMethod {
-    cash = 'cash',
+  const enum paymentMethod {
+    cash        = 'cash',
     mealVoucher = 'meal_voucher',
-    voucher = 'voucher',
-    card = 'card'
+    voucher     = 'voucher',
+    card        = 'card'
   }
 
-  enum actions {
-    accept = 'accept',
+  const enum orderStatus {
+    new       = 'new',
+    accepted  = 'accepted',
+    completed = 'completed',
+    rejected  = 'rejected',
+    canceled  = 'canceled',
+    inTransit = 'in transit'
+  }
+
+  const enum orderAction {
+    accept   = 'accept',
     complete = 'complete',
     delivery = 'delivery'
+  }
+
+  const enum orderType {
+    delivery = 'delivery',
+    pickup   = 'pickup',
+    dineIn   = 'dineIn'
   }
 
   type Order = {
     id: string
     externalId: string
     displayId: string
-    status: string
+    status: orderStatus
     type: string
     paymentMethod?: paymentMethod,
     isPaid?: boolean,
@@ -80,7 +95,7 @@ export declare namespace Rushour {
     }
   }
 
-  enum dayOfWeek {
+  const enum dayOfWeek {
     sun, mon, tue, wed, thu, fri, sat
   }
 
