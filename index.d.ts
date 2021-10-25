@@ -29,33 +29,33 @@ export declare namespace Rushour {
     modifiers?: Array<OrderItem>
   }
 
-  const enum paymentMethod {
-    cash        = 'cash',
-    mealVoucher = 'meal_voucher',
-    voucher     = 'voucher',
-    card        = 'card'
-  }
+  type paymentMethod =
+    | 'cash'
+    | 'meal_voucher'
+    | 'voucher'
+    | 'card'
 
-  const enum orderStatus {
-    new       = 'new',
-    accepted  = 'accepted',
-    completed = 'completed',
-    rejected  = 'rejected',
-    canceled  = 'canceled',
-    inTransit = 'in transit'
-  }
 
-  const enum orderAction {
-    accept   = 'accept',
-    complete = 'complete',
-    delivery = 'delivery'
-  }
+  type orderStatus =
+    | 'new'
+    | 'accepted'
+    | 'completed'
+    | 'rejected'
+    | 'canceled'
+    | 'in transit'
 
-  const enum orderType {
-    delivery = 'delivery',
-    pickup   = 'pickup',
-    dineIn   = 'dineIn'
-  }
+
+  type orderAction =
+    | 'accept'
+    | 'complete'
+    | 'delivery'
+
+
+  type orderType =
+    | 'delivery'
+    | 'pickup'
+    | 'dineIn'
+
 
   type Order = {
     id: string
