@@ -1,6 +1,6 @@
 {
   "name": "@rushour-io/types",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "description": "Public TS types for Rushour API's",
   "main": "index.d.ts",
   "scripts": {
