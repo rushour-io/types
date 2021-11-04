@@ -59,10 +59,10 @@ export declare namespace Rushour {
 
   type Order = {
     id: string
-    externalId: string
+    externalId?: string
     displayId: string
     status: orderStatus
-    type: string
+    type: orderType
     paymentMethod?: paymentMethod,
     isPaid?: boolean,
     cutleryRequested: boolean,
@@ -72,6 +72,7 @@ export declare namespace Rushour {
     items: Array<OrderItem>,
     couriers: Array<Courier>,
     fees: Array<Fee>,
+    extraFees?: Array<Fee>,
 
     total: number,
     instructions: string,
